@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Новинки десертов</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Меню завтраков</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -15,58 +15,69 @@
     }
   </style>
 </head>
-<body class="bg-pink-50 text-gray-800">
+<body class="bg-gray-50 text-gray-900">
 
-  <header class="p-4 text-center">
-    <h1 class="text-3xl font-bold text-pink-600">🍰 Новинки десертов</h1>
-    <p class="text-sm mt-2">Погрузитесь в мир сладких удовольствий</p>
+  <header class="text-center py-8">
+    <h1 class="text-4xl font-bold text-pink-600">🍳 Завтраки от шефа</h1>
+    <p class="mt-2 text-gray-500">Начни день вкусно</p>
   </header>
 
-  <main class="p-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <!-- Карточка 1 -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <img src="https://source.unsplash.com/600x400/?dessert,cake" alt="Клубничный чизкейк" class="w-full h-40 object-cover">
-        <div class="p-3">
-          <h2 class="text-lg font-semibold">Клубничный чизкейк</h2>
-          <p class="text-sm text-gray-600 mb-2">Нежный чизкейк с клубничным соусом.</p>
-          <button class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm hover:bg-pink-600">Подробнее</button>
+  <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    <!-- Карточка продукта -->
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
+      <a href="http://aivabakery.ru/tproduct/310388785262-shakshuka-s-tselnozernovoi-bruskettoi" class="block">
+        <div class="aspect-w-1 aspect-h-1">
+          <img src="https://optim.tildacdn.com/stor3839-3563-4137-b662-653435646139/-/resize/1000x1000/-/format/webp/17903429.webp" alt="Шакшука с брускеттой" class="object-cover w-full h-full" />
         </div>
-      </div>
-
-      <!-- Карточка 2 -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <img src="https://source.unsplash.com/600x400/?dessert,chocolate" alt="Шоколадный мусс" class="w-full h-40 object-cover">
-        <div class="p-3">
-          <h2 class="text-lg font-semibold">Шоколадный мусс</h2>
-          <p class="text-sm text-gray-600 mb-2">Густой мусс с тёмным шоколадом и ванилью.</p>
-          <button class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm hover:bg-pink-600">Подробнее</button>
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-1">Шакшука с брускеттой</h2>
+          <p class="text-sm text-gray-600 mb-3">Классическая шакшука с сыром фета и злаковым тартином.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-pink-600 font-semibold text-lg">490 ₽</span>
+            <button class="bg-pink-500 hover:bg-pink-600 text-white text-sm px-4 py-1 rounded-full">Подробнее</button>
+          </div>
         </div>
-      </div>
-
-      <!-- Карточка 3 -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <img src="https://source.unsplash.com/600x400/?dessert,fruit" alt="Фруктовое пирожное" class="w-full h-40 object-cover">
-        <div class="p-3">
-          <h2 class="text-lg font-semibold">Фруктовое пирожное</h2>
-          <p class="text-sm text-gray-600 mb-2">Свежее тесто с ягодами и кремом.</p>
-          <button class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm hover:bg-pink-600">Подробнее</button>
-        </div>
-      </div>
-
-      <!-- Карточка 4 -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <img src="https://source.unsplash.com/600x400/?dessert,icecream" alt="Мороженое с карамелью" class="w-full h-40 object-cover">
-        <div class="p-3">
-          <h2 class="text-lg font-semibold">Мороженое с карамелью</h2>
-          <p class="text-sm text-gray-600 mb-2">Пломбир с солёной карамелью и орехами.</p>
-          <button class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm hover:bg-pink-600">Подробнее</button>
-        </div>
-      </div>
+      </a>
     </div>
+
+    <!-- Ещё одна карточка -->
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
+      <a href="http://aivabakery.ru/tproduct/730612848432-skrembl-s-krevetkami" class="block">
+        <div class="aspect-w-1 aspect-h-1">
+          <img src="https://optim.tildacdn.com/stor6630-3838-4231-b732-343930626362/-/resize/1000x1000/-/format/webp/25277464.webp" alt="Скрэмбл с креветками" class="object-cover w-full h-full" />
+        </div>
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-1">Скрэмбл с креветками</h2>
+          <p class="text-sm text-gray-600 mb-3">Сливочный скрэмбл с ароматными креветками.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-pink-600 font-semibold text-lg">510 ₽</span>
+            <button class="bg-pink-500 hover:bg-pink-600 text-white text-sm px-4 py-1 rounded-full">Подробнее</button>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Третья карточка -->
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
+      <a href="http://aivabakery.ru/tproduct/277270005312-skrembl-s-forelyu" class="block">
+        <div class="aspect-w-1 aspect-h-1">
+          <img src="https://optim.tildacdn.com/stor3238-3231-4736-b932-383532376539/-/resize/1000x1000/-/format/webp/25230049.webp" alt="Скрэмбл с форелью" class="object-cover w-full h-full" />
+        </div>
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-1">Скрэмбл с форелью</h2>
+          <p class="text-sm text-gray-600 mb-3">Нежный скрэмбл с форелью слабой соли и зеленью.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-pink-600 font-semibold text-lg">640 ₽</span>
+            <button class="bg-pink-500 hover:bg-pink-600 text-white text-sm px-4 py-1 rounded-full">Подробнее</button>
+          </div>
+        </div>
+      </a>
+    </div>
+
   </main>
 
-  <footer class="text-center text-xs text-gray-400 py-4">
+  <footer class="text-center text-sm text-gray-400 mt-10 py-6">
     © 2025 Ваша Кондитерская. Все права защищены.
   </footer>
 
