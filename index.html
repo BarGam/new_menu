@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Новини</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Новинки</title>
+  <!-- Локальная копия Tailwind CSS -->
+  <link rel="stylesheet" href="/css/tailwind.min.css">
+  <!-- Локальные шрифты -->
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -14,7 +16,6 @@
     h1, h2 {
       font-family: 'Playfair Display', serif;
     }
-    
     .text-price {
       color: #ae6f42 !important;
     }
@@ -26,20 +27,20 @@
 <body class="text-gray-900">
 
   <header class="text-center py-8">
-    <h1 class="text-4xl font-bold text-pink-600">Новинки</h1>
+    <h1 class="text-4xl font-bold">Новинки</h1>
     <p class="mt-2 text-gray-500">Начни день вкусно</p>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Карточка продукта -->
+    <!-- Карточка продукта 1 -->
     <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
-      <a href="http://aivabakery.ru/tproduct/310388785262-shakshuka-s-tselnozernovoi-bruskettoi" class="block">
+      <a href="#" class="block">
         <div class="aspect-w-1 aspect-h-1">
-          <img src="https://optim.tildacdn.com/stor3839-3563-4137-b662-653435646139/-/resize/1000x1000/-/format/webp/17903429.webp" alt="Шакшука с брускеттой" class="object-cover w-full h-full" />
+          <img src="img1.webp" alt="Продукт 1" class="object-cover w-full h-full" />
         </div>
         <div class="p-4">
-          <h2 class="text-xl font-semibold mb-1">Шакшука с брускеттой</h2>
-          <p class="text-sm text-gray-600 mb-3">Классическая шакшука с сыром фета и злаковым тартином.</p>
+          <h2 class="text-xl font-semibold mb-1">Продукт 1</h2>
+          <p class="text-sm text-gray-600 mb-3">Описание продукта 1.</p>
           <div class="flex items-center justify-between">
             <span class="text-price font-semibold text-lg">490 ₽</span>
             <button class="button-color text-white text-sm px-4 py-1 rounded-full">Подробнее</button>
@@ -48,15 +49,15 @@
       </a>
     </div>
 
-    <!-- Вторая карточка -->
+    <!-- Карточка продукта 2 -->
     <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
-      <a href="http://aivabakery.ru/tproduct/730612848432-skrembl-s-krevetkami" class="block">
+      <a href="#" class="block">
         <div class="aspect-w-1 aspect-h-1">
-          <img src="https://optim.tildacdn.com/stor6630-3838-4231-b732-343930626362/-/resize/1000x1000/-/format/webp/25277464.webp" alt="Скрэмбл с креветками" class="object-cover w-full h-full" />
+          <img src="img2.webp" alt="Продукт 2" class="object-cover w-full h-full" />
         </div>
         <div class="p-4">
-          <h2 class="text-xl font-semibold mb-1">Скрэмбл с креветками</h2>
-          <p class="text-sm text-gray-600 mb-3">Сливочный скрэмбл с ароматными креветками.</p>
+          <h2 class="text-xl font-semibold mb-1">Продукт 2</h2>
+          <p class="text-sm text-gray-600 mb-3">Описание продукта 2.</p>
           <div class="flex items-center justify-between">
             <span class="text-price font-semibold text-lg">510 ₽</span>
             <button class="button-color text-white text-sm px-4 py-1 rounded-full">Подробнее</button>
@@ -65,15 +66,15 @@
       </a>
     </div>
 
-    <!-- Третья карточка --> 
+    <!-- Карточка продукта 3 -->
     <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition">
-      <a href="http://aivabakery.ru/tproduct/277270005312-skrembl-s-forelyu" class="block">
+      <a href="#" class="block">
         <div class="aspect-w-1 aspect-h-1">
-          <img src="https://optim.tildacdn.com/stor3238-3231-4736-b932-383532376539/-/resize/1000x1000/-/format/webp/25230049.webp" alt="Скрэмбл с форелью" class="object-cover w-full h-full" />
+          <img src="img3.webp" alt="Продукт 3" class="object-cover w-full h-full" />
         </div>
         <div class="p-4">
-          <h2 class="text-xl font-semibold mb-1">Скрэмбл с форелью</h2>
-          <p class="text-sm text-gray-600 mb-3">Нежный скрэмбл с форелью слабой соли и зеленью.</p>
+          <h2 class="text-xl font-semibold mb-1">Продукт 3</h2>
+          <p class="text-sm text-gray-600 mb-3">Описание продукта 3.</p>
           <div class="flex items-center justify-between">
             <span class="text-price font-semibold text-lg">640 ₽</span>
             <button class="button-color text-white text-sm px-4 py-1 rounded-full">Подробнее</button>
