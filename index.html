@@ -238,7 +238,7 @@
 ;
     align-items: center;
 }
-    /* Удаление фиксированного хедера */
+/* Удаление фиксированного хедера */
 header {
   position: static !important;
   display: none; /* Или скрытие */
@@ -267,7 +267,7 @@ header {
 
 /* Модальное меню */
 .modal-menu {
-  display: fixed;
+  position: fixed;
   top: -100vh;
   left: 0;
   width: 100%;
@@ -298,6 +298,7 @@ header {
 .modal-menu.open {
   top: 0;
 }
+
 
   </style>
 </head>
