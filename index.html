@@ -169,6 +169,40 @@
         transition: all 0.3s ease;
     }
 }
+    @media (max-width: 640px) {
+    .aiva-dynamic-header.scrolled .aiva-header-content {
+        padding: 0px;
+        display: flex
+;
+        align-items: center;
+    }
+}
+@media (max-width: 480px) {
+    .aiva-header-content {
+        padding: 0px;
+        gap: 10px;
+    }
+}
+@media (max-width: 640px) {
+    .aiva-header-content {
+        padding: 0px;
+        height: auto;
+        gap: 15px;
+        display: flex
+;
+        align-items: center;
+        width: 100%;
+    }
+}
+.aiva-header-content {
+    width: 100%;
+    display: flex
+;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 0px 0px 5px 0px;
+    height: auto;
+}
 .aiva-dynamic-header {
     position: fixed;
     top: 0;
