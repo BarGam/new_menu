@@ -4,91 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Новинки</title>
-  <!-- Локальная копия Tailwind CSS -->
- <script src="https://cdn.tailwindcss.com"></script>
-<!--   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet"> -->
   <style>
     @font-face {
-  font-display: swap;
-  font-family: 'Commissioner';
-  font-style: normal;
-  font-weight: 100;
-  src: url('commissioner-v23-latin-100.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Commissioner';
-  font-style: normal;
-  font-weight: 400;
-  src: url('commissioner-v23-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Commissioner';
-  font-style: normal;
-  font-weight: 600;
-  src: url('commissioner-v23-latin-600.woff2') format('woff2');
-}
-body {
-    font-family: 'Commissioner', Arial, sans-serif;
-    font-weight: 400;
-    background-color: #f5f1ea;
-  }
-
-  .font-semibold {
-    font-weight: 600;
-  }
-
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
+      font-display: swap;
+      font-family: 'Commissioner';
+      font-style: normal;
+      font-weight: 400;
+      src: url('commissioner-v23-latin-regular.woff2') format('woff2');
     }
-    .text-price {
-      color: #ae6f42 !important;
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Commissioner', Arial, sans-serif;
+      background-color: #f5f1ea;
+      color: #1f2937; /* text-gray-900 */
     }
-    .button-color {
-      background-color: #ae6f42 !important;
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #6b7280; /* text-gray-500 */
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .image-wrapper {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 1rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-description {
+      font-size: 0.875rem;
+      color: #6b7280; /* text-gray-600 */
+      margin-bottom: 0.75rem;
+    }
+
+    .product-price {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #ae6f42;
     }
   </style>
 </head>
-<body class="text-gray-900">
+<body>
 
-  <header class="text-center py-8">
-    <h1 class="text-4xl font-bold">Новинки</h1>
-    <p class="mt-2 text-gray-500">Начни день вкусно</p>
+  <header>
+    <h1>Новинки</h1>
+    <p>Начни день вкусно</p>
   </header>
 
-<main class="max-w-6xl mx-auto px-4 grid grid-cols-2 gap-4">
-  <div class="w-full">
-    <a href="#" class="block w-full h-full">
-      <div class="h-48 overflow-hidden">
-        <img src="https://via.placeholder.com/500" class="w-full h-full object-cover" alt="Product" />
-      </div>
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-1">Продукт 1</h2>
-        <p class="text-sm text-gray-600 mb-3">Описание продукта</p>
-        <span class="text-price font-semibold text-lg">490 ₽</span>
-      </div>
-    </a>
-  </div>
+  <main>
+    <div class="product-card">
+      <a href="#">
+        <div class="image-wrapper">
+          <img src="https://via.placeholder.com/500" alt="Product 1">
+        </div>
+        <div class="product-content">
+          <h2 class="product-title">Продукт 1</h2>
+          <p class="product-description">Описание продукта</p>
+          <span class="product-price">490 ₽</span>
+        </div>
+      </a>
+    </div>
 
-  <div class="w-full">
-    <a href="#" class="block w-full h-full">
-      <div class="h-48 overflow-hidden">
-        <img src="https://via.placeholder.com/500" class="w-full h-full object-cover" alt="Product" />
-      </div>
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-1">Продукт 2</h2>
-        <p class="text-sm text-gray-600 mb-3">Описание продукта</p>
-        <span class="text-price font-semibold text-lg">510 ₽</span>
-      </div>
-    </a>
-  </div>
-</main>
-
-
-
+    <div class="product-card">
+      <a href="#">
+        <div class="image-wrapper">
+          <img src="https://via.placeholder.com/500" alt="Product 2">
+        </div>
+        <div class="product-content">
+          <h2 class="product-title">Продукт 2</h2>
+          <p class="product-description">Описание продукта</p>
+          <span class="product-price">510 ₽</span>
+        </div>
+      </a>
+    </div>
+  </main>
 
 </body>
 </html>
