@@ -772,11 +772,259 @@
 </body>
 </html>
 <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('aivaMobileMenu');
+// Глобальные переменные
+let currentCategories = [];
+let activeCategory = null;
+let isScrolling = false;
 
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
+// Функции для мобильного меню
+function openMobileMenu() {
+    document.getElementById('aivaMobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+    document.getElementById('aivaMobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function toggleMobileNav() {
+    const toggle = document.querySelector('.aiva-mobile-nav-toggle');
+    const list = document.getElementById('aivaMobileNavList');
+    
+    toggle.classList.toggle('expanded');
+    list.classList.toggle('expanded');
+}
+
+// Основная функция инициализации
+function initAivaHeader() {
+    console.log('Инициализация шапки Aiva...');
+    
+    // Сканируем категории
+    scanCategories();
+    
+    // Настраиваем скролл
+    setupScroll();
+    
+    // Периодически пересканируем (для динамического контента Tilda)
+    let scanCount = 0;
+    const scanInterval = setInterval(() => {
+        scanCategories();
+        scanCount++;
+        if (scanCount > 10) {
+            clearInterval(scanInterval);
+        }
+    }, 1000);
+}
+
+// Сканирование категорий
+function scanCategories() {
+    const categories = [];
+    
+    // Ищем заголовки секций
+    const titles = document.querySelectorAll('.t-section__title, .t-title, h1, h2');
+    
+    titles.forEach(title => {
+        const text = title.textContent.trim();
+        
+        // Проверяем, что это подходящий заголовок
+        if (text && 
+            text.length > 2 && 
+            text.length < 50 &&
+            !text.includes('©') &&
+            !text.includes('Made on') &&
+            !text.includes('Tilda')) {
+            
+            // Находим родительскую секцию
+            const section = title.closest('[id*="rec"], .t-rec, .r');
+            if (section && section.id) {
+                categories.push({
+                    name: text,
+                    id: section.id,
+                    element: section
+                });
+            }
+        }
+    });
+    
+    // Добавляем вакансии с SVG иконкой
+    categories.push({
+        name: 'Вакансии',
+        id: 'jobs',
+        external: true,
+        url: 'https://bargam.github.io/Aiva-bakery/',
+        icon: `<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="#9B7253"> <path d="M128 384h768v-64a64 64 0 0 0-64-64H192a64 64 0 0 0-64 64v64zm0 64v320a64 64 0 0 0 64 64h640a64 64 0 0 0 64-64V448H128zm64-256h640a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H192A128 128 0 0 1 64 768V320a128 128 0 0 1 128-128z"></path> <path d="M384 128v64h256v-64H384zm0-64h256a64 64 0 0 1 64 64v64a64 64 0 0 1-64 64H384a64 64 0 0 1-64-64v-64a64 64 0 0 1 64-64z"></path> </svg>`
+    });
+    
+    // Обновляем только если категории изменились
+    if (JSON.stringify(categories) !== JSON.stringify(currentCategories)) {
+        currentCategories = categories;
+        renderNavigation();
+        renderMobileNavigation();
+        setupIntersectionObserver();
+        console.log('Найдено категорий:', categories.length);
+    }
+}
+
+// Отрисовка навигации
+function renderNavigation() {
+    const nav = document.getElementById('aivaNav');
+    
+    if (!nav) return;
+    
+    // Десктопная навигация
+    nav.innerHTML = currentCategories.map(cat => {
+        if (cat.external) {
+            return `<a href="${cat.url}" class="aiva-nav-link jobs" target="_blank">${cat.icon} ${cat.name}</a>`;
+        }
+        return `<a href="#${cat.id}" class="aiva-nav-link" data-category="${cat.id}" onclick="scrollToSection('${cat.id}')">${cat.name}</a>`;
+    }).join('');
+}
+
+// Отрисовка мобильной навигации
+function renderMobileNavigation() {
+    const mobileList = document.getElementById('aivaMobileNavList');
+    
+    if (!mobileList) return;
+    
+    // Мобильная навигация (без вакансий, они отдельно)
+    mobileList.innerHTML = currentCategories
+        .filter(cat => !cat.external)
+        .map(cat => {
+            return `<li><a href="#${cat.id}" data-category="${cat.id}" onclick="scrollToSection('${cat.id}'); closeMobileMenu();">${cat.name}</a></li>`;
+        }).join('');
+}
+
+// Прокрутка к секции
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        isScrolling = true;
+        
+        const headerHeight = 100;
+        const targetPosition = section.offsetTop - headerHeight;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000);
+    }
+}
+
+// Настройка Intersection Observer
+function setupIntersectionObserver() {
+    // Удаляем старые наблюдатели
+    if (window.aivaObservers) {
+        window.aivaObservers.forEach(obs => obs.disconnect());
+    }
+    window.aivaObservers = [];
+    
+    currentCategories.forEach(category => {
+        if (category.element && !category.external) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !isScrolling) {
+                            setActiveCategory(category.id);
+                        }
+                    });
+                },
+                {
+                    rootMargin: '-100px 0px -50% 0px',
+                    threshold: 0.1
+                }
+            );
+            
+            observer.observe(category.element);
+            window.aivaObservers.push(observer);
+        }
+    });
+}
+
+// Установка активной категории
+function setActiveCategory(categoryId) {
+    if (activeCategory === categoryId) return;
+    
+    activeCategory = categoryId;
+    
+    // Обновляем активные ссылки
+    document.querySelectorAll('.aiva-nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.category === categoryId) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Обновляем мобильные ссылки
+    document.querySelectorAll('.aiva-mobile-nav-list a').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.category === categoryId) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Прокручиваем навигацию к активному элементу
+    scrollToActiveLink();
+}
+
+// Прокрутка навигации к активной ссылке
+function scrollToActiveLink() {
+    if (!activeCategory) return;
+    
+    const nav = document.getElementById('aivaNav');
+    const activeLink = nav?.querySelector(`[data-category="${activeCategory}"]`);
+    
+    if (nav && activeLink) {
+        const navRect = nav.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        
+        const scrollLeft = nav.scrollLeft + linkRect.left - navRect.left - navRect.width / 2 + linkRect.width / 2;
+        
+        nav.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Настройка скролла
+function setupScroll() {
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const header = document.getElementById('aivaHeader');
+                
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', initAivaHeader);
+
+// Дополнительная инициализация для Tilda
+window.addEventListener('load', () => {
+    setTimeout(initAivaHeader, 500);
+});
+
+// Инициализация для случая, когда скрипт загружается после DOM
+if (document.readyState !== 'loading') {
+    initAivaHeader();
+}
 </script>
 
