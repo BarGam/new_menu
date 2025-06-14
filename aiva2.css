@@ -1,5 +1,5 @@
 @media (max-width: 639px) {
-    .t-col.t-col_12 .t-section__title {
+    .t-section__title {
         margin: 0 !important;
         padding: 0 20px !important;
         width: 100% !important;
