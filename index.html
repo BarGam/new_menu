@@ -436,27 +436,27 @@ function scrollToActiveLink() {
     }
 }
 
-function setupScroll() {
-    let ticking = false;
+// function setupScroll() {
+//     let ticking = false;
     
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const header = document.getElementById('aivaHeader');
+//     window.addEventListener('scroll', () => {
+//         if (!ticking) {
+//             requestAnimationFrame(() => {
+//                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//                 const header = document.getElementById('aivaHeader');
                 
-                if (scrollTop > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+//                 if (scrollTop > 50) {
+//                     header.classList.add('scrolled');
+//                 } else {
+//                     header.classList.remove('scrolled');
+//                 }
                 
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-}
+//                 ticking = false;
+//             });
+//             ticking = true;
+//         }
+//     });
+// }
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', initAivaHeader);
 
