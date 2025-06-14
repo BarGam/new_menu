@@ -1,4 +1,43 @@
-   @media (max-width: 640px) {
+
+/* Адаптивность для мобильных */
+                                @media (max-width: 639px) {
+                                    .t-col.t-col_12 {
+                                        margin: 0 0 20px 0 !important;
+                                        padding: 0 !important;
+                                        width: 100% !important;
+                                        max-width: 100% !important;
+                                        box-sizing: border-box !important;
+                                    }
+
+                                    .t-col.t-col_12 .t-section__title {
+                                        margin: 0 !important;
+                                        padding: 0 20px !important;
+                                        width: 100% !important;
+                                        box-sizing: border-box !important;
+                                    }
+
+                                    .t-store__title-wrapper, .t-store__title {
+                                        margin: 0 0 20px 0 !important;
+                                        padding: 0 20px !important;
+                                        width: 100% !important;
+                                        max-width: 100% !important;
+                                        box-sizing: border-box !important;
+                                    }
+                                }
+#rec1063315461 .t-section__title {
+                            color: #ae6f42;
+                            font-weight: 400;
+                            padding-bottom: 20px;
+                            font-family: 'Commissioner-Lora';
+                        }
+
+                        @media screen and (min-width: 900px) {
+                            #rec1063315461 .t-section__title {
+                                font-size:48px;
+                            }
+                        }
+
+@media (max-width: 640px) {
     .aiva-burger {
         display: flex
 ;
