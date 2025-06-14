@@ -296,10 +296,7 @@ function scanCategories() {
         }
     });
     
-    // Добавляем вакансии с SVG иконкой
-    categories.push({
-        name: 'Новинки'
-    });
+  
     
     // Обновляем только если категории изменились
     if (JSON.stringify(categories) !== JSON.stringify(currentCategories)) {
