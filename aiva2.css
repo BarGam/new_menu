@@ -24,15 +24,15 @@
                                         box-sizing: border-box !important;
                                     }
                                 }
-#rec1063315461 .t-section__title {
-                            color: #ae6f42;
-                            font-weight: 400;
-                            padding-bottom: 20px;
-                            font-family: 'Commissioner-Lora';
-                        }
+.t-section__title {
+  color: #ae6f42;
+ font-weight: 400;
+ padding-bottom: 20px;
+ font-family: 'Commissioner-Lora';
+  }
 
                         @media screen and (min-width: 900px) {
-                            #rec1063315461 .t-section__title {
+                           .t-section__title {
                                 font-size:48px;
                             }
                         }
