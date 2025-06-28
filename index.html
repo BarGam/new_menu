@@ -783,4 +783,13 @@ if (document.readyState !== 'loading') {
     initAivaHeader();
 }
 </script>
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
 
