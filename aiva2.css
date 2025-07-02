@@ -99,10 +99,6 @@
       transition: box-shadow 0.3s ease;
     }
 
-    .product-card:hover {
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-
     .image-wrapper {
       height: 200px;
       overflow: hidden;
