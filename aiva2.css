@@ -120,11 +120,11 @@
     }
 
     .product-title {
-      font-size: 20px;
+      font-size: 15px;
     color: #5a606c;
     font-weight: 600;
     font-family: 'Amagro', sans-serif !important;
-      font-size: 1.25rem;
+/*       font-size: 1.25rem; */
       font-weight: 600;
       margin-bottom: 0.25rem;
     }
