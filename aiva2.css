@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Amagro';
+  src: url('Amagro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'StolzlRegular';
+  src: url('Stolzl-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 @media (max-width: 639px) {
     .t-section__title {
         margin: 0 !important;
@@ -108,7 +123,7 @@
       font-size: 20px;
     color: #5a606c;
     font-weight: 600;
-    font-family: 'Commissioner-Lora';
+    font-family: 'Amagro', sans-serif !important;
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
