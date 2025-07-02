@@ -136,6 +136,14 @@
       margin-bottom: 0.75rem;
     }
 
+.product-description {
+  display: -webkit-box;        /* создаём flex-контейнер */
+  -webkit-box-orient: vertical; /* вертикальная ориентация */
+  -webkit-line-clamp: 2;       /* ограничиваем двумя строками */
+  overflow: hidden;            /* скрываем лишний текст */
+  text-overflow: ellipsis;     /* добавляем троеточие */
+}
+
     .product-price {
       font-size: 1.125rem;
       font-weight: 600;
