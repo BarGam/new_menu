@@ -129,7 +129,7 @@
   
   <main>
     <div class="product-card">
-      <a href="javascript:void(0);">
+    <a href="product.html">
         <div class="image-wrapper">
           <img src="img3/IMG_4812 (6).jpg" alt="Product 1">
         </div>
@@ -143,7 +143,7 @@
     </div>
     
     <div class="product-card">
-      <a href="javascript:void(0);">
+    <a href="product.html">
         <div class="image-wrapper">
           <img src="img3/IMG_4810 (1).jpg" alt="Product 1">
         </div>
@@ -157,7 +157,7 @@
     </div>
     
     <div class="product-card">
-      <a href="javascript:void(0);">
+    <a href="product.html">
         <div class="image-wrapper">
           <img src="img3/IMG_4807.jpg" alt="Product 1">
         </div>
@@ -768,5 +768,28 @@ if (document.readyState !== 'loading') {
     }
   }
 </script>
+
+<script>
+  // JS для передачи данных товара при клике
+  document.querySelectorAll('.product-card a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault(); // отменяем стандартный переход
+
+      const card = link.closest('.product-card');
+      const productData = {
+        title: card.querySelector('.product-title').textContent.trim(),
+        image: card.querySelector('img').src,
+        description: card.querySelector('.product-description').textContent.trim(),
+        price: card.querySelector('.product-price').textContent.trim(),
+      };
+
+      localStorage.setItem('productData', JSON.stringify(productData));
+
+      // Переходим на детальную страницу
+      window.location.href = link.href;
+    });
+  });
+</script>
+
 
 
