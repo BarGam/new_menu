@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Детальная страница товара</title>
+  <style>
+    body { max-width: 600px; margin: 20px auto; font-family: Arial, sans-serif; }
+    img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+
+  <h1 id="title"></h1>
+  <img id="image" alt="" />
+  <p id="description"></p>
+  <span id="price" style="font-weight:bold; font-size:1.2em;"></span>
+
+  <script>
+    // Читаем данные товара из localStorage
+    const productData = JSON.parse(localStorage.getItem('productData'));
+    if(productData){
+      document.getElementById('title').textContent = productData.title;
+      const img = document.getElementById('image');
+      img.src = productData.image;
+      img.alt = productData.title;
+      document.getElementById('description').textContent = productData.description;
+      document.getElementById('price').textContent = productData.price;
+    } else {
+      document.body.innerHTML = '<h2>Данные товара не найдены.</h2>';
+    }
+  </script>
+
+</body>
+</html>
