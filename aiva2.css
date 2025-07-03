@@ -1447,3 +1447,311 @@ sub {
     position: absolute;
     top: 0
 }
+/* Добавляем метатег viewport для правильной работы на мобильных */
+/* Этот стиль нужно добавить в head страницы */
+
+/* Скрываем стандартный popup Tilda */
+.t-store__prod-popup,
+.t-store__prod-popup__overlay,
+.t-popup {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Стили для нашего кастомного popup */
+.custom-product-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f1ea;
+    z-index: 99999;
+    overflow-y: scroll;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-product-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Шапка popup */
+.custom-popup-header {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: #F5ECD3;
+    border-radius: 15px;
+    margin: 0 40px;
+    z-index: 100001;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.custom-popup-logo {
+    height: 40px;
+    width: 100px;
+}
+
+.custom-popup-logo svg {
+    height: 100%;
+    width: 100%;
+}
+
+.custom-popup-back {
+    display: flex;
+    align-items: center;
+    color: #A67C52;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.custom-popup-back:hover {
+    color: #8A6642;
+    background-color: rgba(245, 236, 211, 0.5);
+}
+
+.custom-popup-back::before {
+    content: '←';
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+/* Контент popup */
+.custom-popup-content {
+    margin-top: 140px;
+    width: 100%;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 100000;
+    box-sizing: border-box;
+    min-height: calc(100vh - 180px);
+}
+
+/* Фотография слева */
+.custom-popup-image {
+    flex: 1;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.custom-popup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Информация о товаре справа */
+.custom-popup-info {
+    flex: 1;
+    width: 50%;
+    background-color: #F5ECD3;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+.custom-popup-title {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #8B5A3C;
+    font-family: 'Commissioner-Lora', serif;
+    text-align: left;
+}
+
+.custom-popup-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px 0 30px;
+    color: #6B7280;
+    font-family: 'Commissioner-Lora', serif;
+    font-weight: 500;
+    text-align: left;
+}
+
+.custom-popup-price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 30px 0;
+}
+
+.custom-popup-price {
+    font-size: 28px;
+    font-weight: 400;
+    color: #8B5A3C;
+    margin: 0;
+    text-align: left;
+}
+
+.custom-popup-sku {
+    font-size: 16px;
+    font-weight: 400;
+    color: #8A6642;
+    margin: 0;
+    font-family: 'Commissioner', sans-serif;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .custom-popup-content {
+        padding: 0 30px;
+        gap: 30px;
+    }
+    
+    .custom-popup-header {
+        margin: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-popup-header {
+        top: 20px;
+        height: 70px;
+        margin: 0 20px;
+        padding: 0 15px;
+    }
+    
+    .custom-popup-logo {
+        height: 32px;
+        width: 80px;
+    }
+    
+    .custom-popup-back {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .custom-popup-content {
+        margin-top: 120px;
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 30px;
+        min-height: calc(100vh - 160px);
+    }
+    
+    .custom-popup-image {
+        width: 100%;
+        flex: none;
+        aspect-ratio: 1 / 1;
+        border-radius: 15px;
+    }
+    
+    .custom-popup-info {
+        width: 100%;
+        flex: none;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .custom-popup-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .custom-popup-description {
+        font-size: 14px;
+        margin: 15px 0 20px;
+        text-align: center;
+    }
+    
+    .custom-popup-price-container {
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    .custom-popup-price {
+        font-size: 24px;
+    }
+}
+
+/* Анимация закрытия */
+.custom-product-popup.closing {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.4s ease;
+}
+
+.custom-product-popup.closing .custom-popup-header {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.custom-product-popup.closing .custom-popup-image {
+    transform: translateX(-50px) scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.custom-product-popup.closing .custom-popup-info {
+    transform: translateX(50px) scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+}
+
+/* Анимация загрузки */
+.custom-popup-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #8B5A3C;
+    font-size: 16px;
+}
+
+.custom-popup-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8B5A3C;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Показываем существующий футер */
+#rec1061431976 {
+    display: block !important;
+    visibility: visible !important;
+}
