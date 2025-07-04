@@ -131,7 +131,11 @@
       color: #6b7280; /* text-gray-600 */
       margin-bottom: 0.75rem;
     }
-
+.product-description-1{
+   font-size: 0.875rem;
+   color: #6b7280; /* text-gray-600 */
+   margin-bottom: 0.75rem;
+}
 .product-description {
   display: -webkit-box;        /* создаём flex-контейнер */
   -webkit-box-orient: vertical; /* вертикальная ориентация */
